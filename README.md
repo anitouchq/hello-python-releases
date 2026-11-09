@@ -1,6 +1,9 @@
-# 🐍 hello-python-releases — PyInstaller → GitHub Releases
+# hello-python-releases
 
-Учебный CI/CD-проект для Python. GitHub Actions запускает Ruff и pytest при push в `main` и pull request. При push тега версии приложение упаковывается PyInstaller на трёх операционных системах, а готовые исполняемые файлы прикладываются к GitHub Release.
+[![CI](https://github.com/anitouchq/hello-python-releases/actions/workflows/ci.yml/badge.svg)](https://github.com/anitouchq/hello-python-releases/actions)
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+
+Учебный CI/CD-проект на Python. GitHub Actions запускает Ruff и pytest при push в `main` и pull request. При push тега версии приложение упаковывается PyInstaller на трёх операционных системах и публикуется в GitHub Releases.
 
 ## CI checks
 
@@ -16,7 +19,7 @@
 | macOS | `hello-python-macos` |
 | Windows x64 | `hello-python-windows-x64.exe` |
 
-PyInstaller запускается на каждой целевой ОС отдельно: бинарные приложения для Windows, macOS и Linux собираются нативными runner-ами.
+PyInstaller запускается отдельно на каждой целевой ОС: готовые приложения для Windows, macOS и Linux собираются нативными runner'ами.
 
 ## Как создать Release
 
@@ -25,7 +28,7 @@ git tag v1.0.0
 git push origin v1.0.0
 ```
 
-Сначала workflow запускает тесты и линтер. После успешного завершения матрица собирает исполняемые файлы, а job `release` публикует их в GitHub Releases.
+Сначала workflow запускает линтер и тесты. Затем матрица собирает исполняемые файлы, а job `release` публикует их в [GitHub Releases](https://github.com/anitouchq/hello-python-releases/releases).
 
 ## Локальный запуск
 
@@ -40,8 +43,21 @@ python main.py
 python -m PyInstaller --onefile --name hello-python main.py
 ```
 
-## Permissions
+## Структура проекта
 
-Для CI используется `contents: read`. Job публикации получает `contents: write` и создаёт релиз с помощью встроенного `GITHUB_TOKEN`.
+| Файл или каталог | Назначение |
+|---|---|
+| `.github/workflows/ci.yml` | Линтинг, тесты, матричная сборка и публикация Release |
+| `hello/__init__.py` | Инициализация Python-пакета |
+| `hello/greeting.py` | Логика формирования приветствия |
+| `main.py` | Точка входа CLI-приложения |
+| `tests/test_greeting.py` | Тесты логики приветствия |
+| `pyproject.toml` | Метаданные проекта и настройки инструментов |
+| `.gitignore` | Локальные файлы, исключаемые из Git |
+
+## Результаты
+
+- [GitHub Actions](https://github.com/anitouchq/hello-python-releases/actions)
+- [Опубликованные релизы](https://github.com/anitouchq/hello-python-releases/releases)
 
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
