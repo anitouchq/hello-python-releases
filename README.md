@@ -61,3 +61,33 @@ python -m PyInstaller --onefile --name hello-python main.py
 - [Опубликованные релизы](https://github.com/anitouchq/hello-python-releases/releases)
 
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
+
+## Скриншоты
+
+Добавьте изображения в каталог `screenshots/`:
+
+- `screenshots/application.png` — пример запуска собранного приложения;
+- `screenshots/github-actions-release.png` — успешная матричная сборка PyInstaller;
+- `screenshots/github-release.png` — опубликованный Release с файлами для ОС.
+
+![Пример работы приложения](screenshots/application.png)
+![Сборка GitHub Actions](screenshots/github-actions-release.png)
+![Опубликованный GitHub Release](screenshots/github-release.png)
+
+## Как создать Release-сборку
+
+После того как изменения закоммичены в `main`, отправьте тег версии:
+
+```bash
+git checkout main
+git pull origin main
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+Workflow реагирует на теги вида `v*`. Сначала выполняются Ruff и pytest, затем PyInstaller собирает приложение на Linux, macOS и Windows runner'ах. В конце отдельный job создаёт GitHub Release и прикладывает бинарники.
+
+Для следующих версий используйте новый тег, например `v1.0.1`. Не создавайте повторно уже существующий тег.
+
+- [Проверить GitHub Actions](https://github.com/anitouchq/hello-python-releases/actions)
+- [Скачать Release](https://github.com/anitouchq/hello-python-releases/releases)
