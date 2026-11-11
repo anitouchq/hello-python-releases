@@ -43,6 +43,11 @@ python main.py
 python -m PyInstaller --onefile --name hello-python main.py
 ```
 
+python main.py
+```
+
+![Запуск CLI-приложения](screenshots/application.png)
+
 ## Структура проекта
 
 | Файл или каталог | Назначение |
@@ -70,9 +75,5 @@ python -m PyInstaller --onefile --name hello-python main.py
 **Release v1.0.0 (3 бинарника):**
 
 ![GitHub Release с файлами для трёх ОС](screenshots/github-release.png)
-
-### Запуск приложения
-
-![Запуск CLI-приложения](screenshots/application.png)
 
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
