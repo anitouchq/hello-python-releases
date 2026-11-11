@@ -61,18 +61,18 @@ python -m PyInstaller --onefile --name hello-python main.py
 - [Опубликованные релизы](https://github.com/anitouchq/hello-python-releases/releases)
 
 
-## Скриншоты
+## 📸 Скриншоты
 
-### Пример запуска CLI-приложения
+**Actions (CI/CD):**
 
-![Пример запуска CLI-приложения](screenshots/application.png)
+![GitHub Actions — успешная сборка](screenshots/github-actions-release.png)
 
-### Успешная сборка PyInstaller
-
-![Успешная сборка PyInstaller](screenshots/github-actions-release.png)
-
-### GitHub Release с файлами для трёх ОС
+**Release v1.0.0 (3 бинарника):**
 
 ![GitHub Release с файлами для трёх ОС](screenshots/github-release.png)
+
+### Запуск приложения
+
+![Запуск CLI-приложения](screenshots/application.png)
 
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
